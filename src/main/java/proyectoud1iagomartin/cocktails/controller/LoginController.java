@@ -17,6 +17,8 @@ import java.net.URL;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
+import static proyectoud1iagomartin.cocktails.tools.ConexionBBDD.loging;
+
 /**
  * Contiene el codigo de la ventana login del progrma.
  */
@@ -37,23 +39,10 @@ public class LoginController implements Initializable {
      * @throws Exception the exception
      */
     public void LogIn(ActionEvent actionEvent) {
+        String usr = user.getText();
+        String passwd = pass.getText();
 
-        //Leer archivo de configuiracion con admin y pass maestra
-        Properties properties = new Properties();
-        FileInputStream inputStream = null;
-        try {
-            inputStream = new FileInputStream("src/conf/config.properties");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-
-        try {
-            properties.load(inputStream);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        if (user.getText().contains(properties.get("user").toString()) && (pass.getText().contains(properties.get("password").toString()))) {
+        if (loging(usr, passwd) == true) {
             System.out.println("Bienvenido");
 
             //Abrir main-view
