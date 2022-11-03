@@ -2,6 +2,38 @@ drop database if exists BBDD_Cocktails;
 create database BBDD_Cocktails;
 use BBDD_Cocktails;
 
+/* Tabla Usuarios */
+drop table if exists Usuarios;
+create table if not exists Usuarios
+	(
+		DNI char(9) not null,
+		NombreCompleto varchar (50) not null,
+        Usr varchar (50) not null, 
+        Passwd varchar (50) not null,
+        
+        unique index AK_Usr_Usuario (Usr),
+        
+		primary key (DNI)
+        
+	)engine InnoDB;
+
+/** Insertar Usuarios **/
+insert into Usuarios
+  (DNI, NombreCompleto, Usr, Passwd) 
+values 
+('77077715T', 'Fernanda la Tuerta', 'Fertuer', 'gb435qfwfe7'),
+('80420759V', 'Marcos Vázquez', 'Marvaz', 'gfdg4fe7'),
+('47981232N', 'Leopoldo Bastida', 'Leobas', 'dsga4556jgh'),
+('79990897W', 'Avelina Ocaña', 'Aveoca', 'dsfg6jkf'),
+('37900014Q', 'Sandra Melian', 'Sanmel', 'lkn45kj5'),
+('25629359E', 'Nicole Barrios', 'Nicbar', 'fdhln56j5'),
+('28805319G', 'Basilio Arce', 'Basarc', 'dfglkb45jh'),
+('86848625G', 'Matias Clemente', 'Matcle', 'dsfsf8hrt'),
+('42705711R', 'Baldomero Puerto', 'Balpue', 'esgvdfloh56i'),
+    
+('111111111', 'admin', 'admin', 'admin');
+
+/* Tabla Drinks */
 drop table if exists drinks;
 create table drinks(
 	idDrink                     INTEGER  NOT NULL PRIMARY KEY,
@@ -56,6 +88,8 @@ create table drinks(
 	strCreativeCommonsConfirmed VARCHAR(3) NOT NULL,
 	dateModified                VARCHAR(19) 
 );
+
+/** Insertar Drinks **/
 INSERT INTO drinks(idDrink,strDrink,strDrinkAlternate,strTags,strVideo,strCategory,strIBA,strAlcoholic,strGlass,strInstructions,strInstructionsES,strInstructionsDE,strInstructionsFR,strInstructionsIT,strInstructionsZHHANS,strInstructionsZHHANT,strDrinkThumb,strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5,strIngredient6,strIngredient7,strIngredient8,strIngredient9,strIngredient10,strIngredient11,strIngredient12,strIngredient13,strIngredient14,strIngredient15,strMeasure1,strMeasure2,strMeasure3,strMeasure4,strMeasure5,strMeasure6,strMeasure7,strMeasure8,strMeasure9,strMeasure10,strMeasure11,strMeasure12,strMeasure13,strMeasure14,strMeasure15,strImageSource,strImageAttribution,strCreativeCommonsConfirmed,dateModified) VALUES (17222,'A1',NULL,NULL,NULL,'Cocktail',NULL,'Alcoholic','Cocktail glass','Pour all ingredients into a cocktail shaker, mix and serve over ice into a chilled glass.','Vierta todos los ingredientes en una coctelera, mezcle y sirva con hielo en un vaso frío.','Alle Zutaten in einen Cocktailshaker geben, mischen und über Eis in ein gekühltes Glas servieren.',NULL,'Versare tutti gli ingredienti in uno shaker, mescolare e servire con ghiaccio in un bicchiere freddo.',NULL,NULL,'https://www.thecocktaildb.com/images/media/drink/2x8thr1504816928.jpg','Gin','Grand Marnier','Lemon Juice','Grenadine',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1 3/4 shot','1 Shot','1/4 Shot','1/8 Shot',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No','2017-09-07 21:42:09');
 INSERT INTO drinks(idDrink,strDrink,strDrinkAlternate,strTags,strVideo,strCategory,strIBA,strAlcoholic,strGlass,strInstructions,strInstructionsES,strInstructionsDE,strInstructionsFR,strInstructionsIT,strInstructionsZHHANS,strInstructionsZHHANT,strDrinkThumb,strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5,strIngredient6,strIngredient7,strIngredient8,strIngredient9,strIngredient10,strIngredient11,strIngredient12,strIngredient13,strIngredient14,strIngredient15,strMeasure1,strMeasure2,strMeasure3,strMeasure4,strMeasure5,strMeasure6,strMeasure7,strMeasure8,strMeasure9,strMeasure10,strMeasure11,strMeasure12,strMeasure13,strMeasure14,strMeasure15,strImageSource,strImageAttribution,strCreativeCommonsConfirmed,dateModified) VALUES (13501,'ABC',NULL,NULL,NULL,'Shot',NULL,'Alcoholic','Shot glass','Layered in a shot glass.','Coloque todos los ingredientes en un vaso de chupito.','Schichtaufbau in einem Schnapsglas.',NULL,'Versa in ordine di lettera i vari ingredienti. 1/3 del bicchiere va riempito con l''Amaretto, 1/3 di Baileys e il restante di Cognac.',NULL,NULL,'https://www.thecocktaildb.com/images/media/drink/tqpvqp1472668328.jpg','Amaretto','Baileys irish cream','Cognac',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1/3','1/3','1/3',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No','2016-08-31 19:32:08');
 INSERT INTO drinks(idDrink,strDrink,strDrinkAlternate,strTags,strVideo,strCategory,strIBA,strAlcoholic,strGlass,strInstructions,strInstructionsES,strInstructionsDE,strInstructionsFR,strInstructionsIT,strInstructionsZHHANS,strInstructionsZHHANT,strDrinkThumb,strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5,strIngredient6,strIngredient7,strIngredient8,strIngredient9,strIngredient10,strIngredient11,strIngredient12,strIngredient13,strIngredient14,strIngredient15,strMeasure1,strMeasure2,strMeasure3,strMeasure4,strMeasure5,strMeasure6,strMeasure7,strMeasure8,strMeasure9,strMeasure10,strMeasure11,strMeasure12,strMeasure13,strMeasure14,strMeasure15,strImageSource,strImageAttribution,strCreativeCommonsConfirmed,dateModified) VALUES (17225,'Ace',NULL,NULL,NULL,'Cocktail',NULL,'Alcoholic','Martini Glass','Shake all the ingredients in a cocktail shaker and ice then strain in a cold glass.','Agite todos los ingredientes en una coctelera con hielo y entonces cuélelos sobre un vaso enfriado.','Alle Zutaten in einem Cocktailshaker mit Eis schütteln und dann in einem kalten Glas abseihen.',NULL,'Shakerare tutti gli ingredienti in uno shaker e ghiaccio, quindi filtrare in un bicchiere freddo.',NULL,NULL,'https://www.thecocktaildb.com/images/media/drink/l3cd7f1504818306.jpg','Gin','Grenadine','Heavy cream','Milk','Egg White',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2 shots','1/2 shot','1/2 shot','1/2 shot','1/2 Fresh',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'No','2017-09-07 22:05:06');
