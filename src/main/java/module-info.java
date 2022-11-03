@@ -10,6 +10,7 @@ module com.example.proyectoud1iagomartin {
     requires eu.hansolo.tilesfx;
     requires com.fasterxml.jackson.annotation;
     requires com.fasterxml.jackson.databind;
+    requires java.sql;
 
     opens proyectoud1iagomartin.cocktails to javafx.fxml;
     exports proyectoud1iagomartin.cocktails;
