@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="492.0" prefWidth="686.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoud1iagomartin.cocktails.controller.DrinkController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <AnchorPane prefHeight="490.0" prefWidth="645.0">
+        <children>
+            <Label layoutX="25.0" layoutY="29.0" prefHeight="17.0" prefWidth="48.0" text="Cocktail:" />
+            <TextField fx:id="name" layoutX="82.0" layoutY="25.0" />
+            <Button fx:id="search" layoutX="252.0" layoutY="25.0" mnemonicParsing="false" onAction="#setName" text="Buscar" />
+            <TableView fx:id="tableView" layoutX="7.0" layoutY="89.0" prefHeight="300.0" prefWidth="600.0">
+                <columns>
+                    <TableColumn fx:id="tbl_name" prefWidth="120.0" text="Nombre" />
+                    <TableColumn fx:id="tbl_ingrediente1" prefWidth="120.0" text="Ingrediente 1" />
+                    <TableColumn fx:id="tbl_ingrediente2" prefWidth="120.0" text="Ingrediente 2" />
+                    <TableColumn fx:id="tbl_ingrediente3" prefWidth="120.0" text="Ingrediente 3" />
+                    <TableColumn fx:id="tbl_ingrediente4" prefWidth="120.0" text="Ingrediente 4" />
+                </columns>
+            </TableView>
+            <Button fx:id="rndCocktail" layoutX="478.0" layoutY="25.0" mnemonicParsing="false" onAction="#setRandom" text="Random Cocktail" />
+            <Label layoutX="332.0" layoutY="29.0" prefHeight="17.0" prefWidth="112.0" text="Voy a probar suerte:" />
+            <Label layoutX="71.0" layoutY="407.0" prefHeight="17.0" prefWidth="235.0" text="Con que nombre quieres exportar la tabla?" />
+            <TextField fx:id="fileName" layoutX="314.0" layoutY="403.0" />
+            <Button fx:id="exportar" layoutX="482.0" layoutY="403.0" mnemonicParsing="false" onAction="#export" text="Exportar" />
+        </children>
+    </AnchorPane>
+</VBox>

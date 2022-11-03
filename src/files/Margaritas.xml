@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cocktails>
+    <drinks>
+        <drink>
+            <nombre>Margarita</nombre>
+            <ingrediente1>Tequila</ingrediente1>
+            <Ingrediente2>Triple sec</Ingrediente2>
+            <Ingrediente3>Lime juice</Ingrediente3>
+            <nombre>Blue Margarita</nombre>
+            <ingrediente1>Tequila</ingrediente1>
+            <Ingrediente2>Blue Curacao</Ingrediente2>
+            <Ingrediente3>Lime juice</Ingrediente3>
+            <nombre>Tommy's Margarita</nombre>
+            <ingrediente1>Tequila</ingrediente1>
+            <Ingrediente2>Lime Juice</Ingrediente2>
+            <Ingrediente3>Agave syrup</Ingrediente3>
+            <nombre>Whitecap Margarita</nombre>
+            <ingrediente1>Ice</ingrediente1>
+            <Ingrediente2>Tequila</Ingrediente2>
+            <Ingrediente3>Cream of coconut</Ingrediente3>
+            <nombre>Strawberry Margarita</nombre>
+            <ingrediente1>Strawberry schnapps</ingrediente1>
+            <Ingrediente2>Tequila</Ingrediente2>
+            <Ingrediente3>Triple sec</Ingrediente3>
+            <nombre>Smashed Watermelon Margarita</nombre>
+            <ingrediente1>Watermelon</ingrediente1>
+            <Ingrediente2>Mint</Ingrediente2>
+            <Ingrediente3>Grapefruit Juice</Ingrediente3>
+        </drink>
+    </drinks>
+</cocktails>

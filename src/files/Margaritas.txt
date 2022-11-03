@@ -1,0 +1,7 @@
+[Nombre = Margarita, Ingrediente 1 = Tequila, Ingrediente 2 = Triple sec, Ingrediente 3 = Lime juice, Ingrediente 4 = Salt
+, Nombre = Blue Margarita, Ingrediente 1 = Tequila, Ingrediente 2 = Blue Curacao, Ingrediente 3 = Lime juice, Ingrediente 4 = Salt
+, Nombre = Tommy's Margarita, Ingrediente 1 = Tequila, Ingrediente 2 = Lime Juice, Ingrediente 3 = Agave syrup, Ingrediente 4 = null
+, Nombre = Whitecap Margarita, Ingrediente 1 = Ice, Ingrediente 2 = Tequila, Ingrediente 3 = Cream of coconut, Ingrediente 4 = Lime juice
+, Nombre = Strawberry Margarita, Ingrediente 1 = Strawberry schnapps, Ingrediente 2 = Tequila, Ingrediente 3 = Triple sec, Ingrediente 4 = Lemon juice
+, Nombre = Smashed Watermelon Margarita, Ingrediente 1 = Watermelon, Ingrediente 2 = Mint, Ingrediente 3 = Grapefruit Juice, Ingrediente 4 = Lime
+]
