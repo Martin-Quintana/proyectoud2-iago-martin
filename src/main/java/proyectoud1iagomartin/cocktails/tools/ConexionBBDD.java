@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class ConexionBBDD {
     static Scanner scan = new Scanner(System.in);
     private static final String driver = "com.mysql.cj.jdbc.Driver";
-    private static final String bbdd = "jdbc:mysql://localhost:3306/";
+    private static final String bbdd = "jdbc:mysql://localhost:3306/BBDD_Cocktails";
     private static final String usr = "root";
     private static final String passw = "root";
 
@@ -34,10 +34,17 @@ public class ConexionBBDD {
         try {
             Connection con = DriverManager.getConnection(bbdd, usr, passw);
             Statement consulta = con.createStatement();
-            ResultSet resultado = consulta.executeQuery("select * from ");
+            ResultSet resultado = consulta.executeQuery("select strDrink, strIngredient1, strIngredient2, strIngredient3, strIngredient4 from drinks ");
 
             while (resultado.next()) {
-                }
+                String nombre = resultado.getString("strDrink");
+                String igdt1 = resultado.getString("strIngredient1");
+                String igdt2 = resultado.getString("strIngredient2");
+                String igdt3 = resultado.getString("strIngredient3");
+                String igdt4 = resultado.getString("strIngredient4");
+                System.out.println("Nombre: " + nombre + ", Ingrediente 1: " + igdt1 + ", Ingrediente 2: " + igdt2 + ", Ingrediente 3: " + igdt3 + ", Ingrediente 4: " + igdt4);
+
+            }
 
             resultado.close();
             consulta.close();
