@@ -32,6 +32,6 @@ values
 ('86848625G', 'Matias Clemente', 'Matcle', 'dsfsf8hrt'),
 ('42705711R', 'Baldomero Puerto', 'Balpue', 'esgvdfloh56i'),
     
-('111111111', 'admin', 'admin');
+('111111111', 'admin', 'admin', 'admin');
  
   
