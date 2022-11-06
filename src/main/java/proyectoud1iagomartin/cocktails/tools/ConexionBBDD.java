@@ -6,11 +6,12 @@ import java.util.Scanner;
 public class ConexionBBDD {
     static Scanner scan = new Scanner(System.in);
     private static final String driver = "com.mysql.cj.jdbc.Driver";
-    private static final String bbdd_Cocktails = "jdbc:mysql://localhost:3306/BBDD_Cocktails";
+    public static final String bbdd_Cocktails = "jdbc:mysql://localhost:3306/BBDD_Cocktails";
+    public static final String bbdd_LogIn = "jdbc:mysql://localhost:3306/BBDD_LogIn";
     private static final String USR = "root";
     private static final String PASSW = "root";
 
-    public static Connection Conexion() {
+    public static Connection Conexion(String BBDD) {
         Connection conex = null;
 
         try {
@@ -52,7 +53,7 @@ public class ConexionBBDD {
     public static boolean loging(String usr, String passwd) {
         boolean verificar = false;
         try {
-            Connection con = DriverManager.getConnection(bbdd_Cocktails, USR, PASSW);
+            Connection con = DriverManager.getConnection(bbdd_LogIn, USR, PASSW);
             Statement consulta = con.createStatement();
             ResultSet resultado = consulta.executeQuery("select Usr, Passwd from Usuarios where Usr = '" + usr + "'" + " and Passwd = " + "'" + passwd + "'");
 

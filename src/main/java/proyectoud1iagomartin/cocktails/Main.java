@@ -10,7 +10,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import proyectoud1iagomartin.cocktails.tools.ConexionBBDD;
 
-import static proyectoud1iagomartin.cocktails.tools.ConexionBBDD.consultAll;
+import static proyectoud1iagomartin.cocktails.tools.ConexionBBDD.*;
 import static proyectoud1iagomartin.cocktails.tools.Encryption.*;
 
 /**
@@ -28,13 +28,15 @@ public class Main extends Application {
 
             //=========================================================================
             // Declaramos una variable para almacenar la conexión que nos va a devolver el método Conexion()
-            Connection conex;
+            Connection conex_Cocktails;
+            Connection conex_LogIn;
 
             // Almacenamos lo que nos devuelve el método Conexion() en la variable conex
-            conex = ConexionBBDD.Conexion();
+            conex_Cocktails = ConexionBBDD.Conexion(bbdd_Cocktails);
+            conex_LogIn = ConexionBBDD.Conexion(bbdd_LogIn);
 
             // Si la variable objeto conex es diferente de nulo
-            if (conex != null) {
+            if (conex_Cocktails != null || conex_LogIn != null) {
                 // Informamos que la conexión es correcta
                 System.out.println("Successfully connected");
                 consultAll();
