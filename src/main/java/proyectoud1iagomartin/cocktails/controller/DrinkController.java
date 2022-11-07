@@ -2,6 +2,7 @@ package proyectoud1iagomartin.cocktails.controller;
 
 import proyectoud1iagomartin.cocktails.model.Drinks;
 import proyectoud1iagomartin.cocktails.model.Response;
+import proyectoud1iagomartin.cocktails.tools.ConexionBBDD;
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -30,6 +31,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import static proyectoud1iagomartin.cocktails.tools.ConexionBBDD.consultMargaritas;
+import static proyectoud1iagomartin.cocktails.tools.ConexionBBDD.drinkList;
 
 /**
  * Contiene el codigo de la ventana principal del progrma.
@@ -67,11 +71,9 @@ public class DrinkController implements Initializable {
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
-    private Drinks drink = new Drinks();
 
     private ObservableList<Drinks> tableDrinks;
 
-    private ArrayList<Drinks> drinkList = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -93,26 +95,13 @@ public class DrinkController implements Initializable {
      * @param actionEvent the action event
      */
     public void setName(ActionEvent actionEvent) {
-        try {
-            URL jsonURL = new URL(finalURL + name.getText());
 
-            Response response = objectMapper.readValue(jsonURL, Response.class);
-            for (int i = 0; i < response.getDrinks().size(); i++) {
-                drink = new Drinks(response.getDrinks().get(i).getStrDrink(),
-                        response.getDrinks().get(i).getStrIngredient1(),
-                        response.getDrinks().get(i).getStrIngredient2(),
-                        response.getDrinks().get(i).getStrIngredient3(),
-                        response.getDrinks().get(i).getStrIngredient4());
-                drinkList.add(drink);
-            }
+        consultMargaritas();
 
-            tableDrinks = FXCollections.observableArrayList(drinkList);
-            tableView.setItems(tableDrinks);
-            tableDrinks.stream().forEach(System.out::println);
+        tableDrinks = FXCollections.observableArrayList(drinkList);
+        tableView.setItems(tableDrinks);
+        tableDrinks.stream().forEach(System.out::println);
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -126,12 +115,7 @@ public class DrinkController implements Initializable {
             Response response = objectMapper.readValue(jsonURL, Response.class);
 
             for (int i = 0; i < response.getDrinks().size(); i++) {
-                drink = new Drinks(response.getDrinks().get(i).getStrDrink(),
-                        response.getDrinks().get(i).getStrIngredient1(),
-                        response.getDrinks().get(i).getStrIngredient2(),
-                        response.getDrinks().get(i).getStrIngredient3(),
-                        response.getDrinks().get(i).getStrIngredient4());
-                drinkList.add(drink);
+
             }
 
             tableDrinks = FXCollections.observableArrayList(drinkList);

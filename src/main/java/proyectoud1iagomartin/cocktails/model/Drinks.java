@@ -186,6 +186,7 @@ public class Drinks implements Serializable {
     public Drinks() {
     }
 
+
     /**
      * Gets str instructions de.
      *

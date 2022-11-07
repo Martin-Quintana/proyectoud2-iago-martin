@@ -39,7 +39,7 @@ public class Main extends Application {
             if (conex_Cocktails != null || conex_LogIn != null) {
                 // Informamos que la conexión es correcta
                 System.out.println("Successfully connected");
-                consultAll();
+
             } else { // Sino informamos que no nos podemos conectar.
                 System.out.println("You couldn't connect");
             }
