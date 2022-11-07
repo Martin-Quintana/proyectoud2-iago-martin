@@ -38,6 +38,9 @@ public class LoginController implements Initializable {
      * @param actionEvent the action event
      * @throws Exception the exception
      */
+
+    
+
     public void LogIn(ActionEvent actionEvent) {
         String usr = user.getText();
         String passwd = pass.getText();
