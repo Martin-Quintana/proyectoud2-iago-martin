@@ -50,6 +50,30 @@ public class ConexionBBDD {
         }
     }
 
+    public static void consultMargaritas() {
+        try {
+            Connection con = DriverManager.getConnection(bbdd_Cocktails, USR, PASSW);
+            Statement consulta = con.createStatement();
+            ResultSet resultado = consulta.executeQuery("select strDrink, strIngredient1, strIngredient2, strIngredient3, strIngredient4 from drinks where strDrink like '%margarita%'");
+
+            while (resultado.next()) {
+                String nombre = resultado.getString("strDrink");
+                String igdt1 = resultado.getString("strIngredient1");
+                String igdt2 = resultado.getString("strIngredient2");
+                String igdt3 = resultado.getString("strIngredient3");
+                String igdt4 = resultado.getString("strIngredient4");
+                System.out.println("Nombre: " + nombre + ", Ingrediente 1: " + igdt1 + ", Ingrediente 2: " + igdt2 + ", Ingrediente 3: " + igdt3 + ", Ingrediente 4: " + igdt4);
+
+            }
+
+            resultado.close();
+            consulta.close();
+            con.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     public static boolean loging(String usr, String passwd) {
         boolean verificar = false;
         try {
