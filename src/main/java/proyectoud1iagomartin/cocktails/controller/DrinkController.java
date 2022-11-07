@@ -30,8 +30,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static proyectoud1iagomartin.cocktails.tools.ConexionBBDD.nameConsult;
-import static proyectoud1iagomartin.cocktails.tools.ConexionBBDD.drinkList;
+import static proyectoud1iagomartin.cocktails.tools.ConexionBBDD.*;
 
 /**
  * Contiene el codigo de la ventana principal del progrma.
@@ -76,6 +75,8 @@ public class DrinkController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         name.setText("Margarita");
+        all();
+
 
         tableDrinks = FXCollections.observableArrayList();
 
@@ -87,6 +88,14 @@ public class DrinkController implements Initializable {
         this.tbl_ingrediente4.setCellValueFactory(new PropertyValueFactory("strIngredient4"));
     }
 
+
+    public void all(){
+        consultAll();
+
+        tableDrinks = FXCollections.observableArrayList(drinkList);
+        tableView.setItems(tableDrinks);
+        tableDrinks.stream().forEach(System.out::println);
+    }
     /**
      * Imprimir en la tabla el cocktail correspondiente al nombre introducido por teclado
      *
