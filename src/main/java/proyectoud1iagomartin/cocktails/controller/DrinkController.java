@@ -2,7 +2,6 @@ package proyectoud1iagomartin.cocktails.controller;
 
 import proyectoud1iagomartin.cocktails.model.Drinks;
 import proyectoud1iagomartin.cocktails.model.Response;
-import proyectoud1iagomartin.cocktails.tools.ConexionBBDD;
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -29,10 +28,9 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import static proyectoud1iagomartin.cocktails.tools.ConexionBBDD.consultMargaritas;
+import static proyectoud1iagomartin.cocktails.tools.ConexionBBDD.nameConsult;
 import static proyectoud1iagomartin.cocktails.tools.ConexionBBDD.drinkList;
 
 /**
@@ -95,8 +93,9 @@ public class DrinkController implements Initializable {
      * @param actionEvent the action event
      */
     public void setName(ActionEvent actionEvent) {
+        String cocktailName = this.name.getText();
 
-        consultMargaritas();
+        nameConsult(cocktailName);
 
         tableDrinks = FXCollections.observableArrayList(drinkList);
         tableView.setItems(tableDrinks);

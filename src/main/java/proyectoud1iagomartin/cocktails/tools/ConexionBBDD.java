@@ -1,7 +1,5 @@
 package proyectoud1iagomartin.cocktails.tools;
 
-import javafx.collections.ObservableList;
-import proyectoud1iagomartin.cocktails.controller.DrinkController;
 import proyectoud1iagomartin.cocktails.model.Drinks;
 
 import java.sql.*;
@@ -62,11 +60,11 @@ public class ConexionBBDD {
         }
     }
 
-    public static void consultMargaritas() {
+    public static void nameConsult(String cocktailName) {
         try {
             Connection con = DriverManager.getConnection(bbdd_Cocktails, USR, PASSW);
             Statement consulta = con.createStatement();
-            ResultSet resultado = consulta.executeQuery("select strDrink, strIngredient1, strIngredient2, strIngredient3, strIngredient4 from drinks where strDrink like '%margarita%';");
+            ResultSet resultado = consulta.executeQuery("select strDrink, strIngredient1, strIngredient2, strIngredient3, strIngredient4 from drinks where strDrink like '%"+cocktailName+"%';");
 
             while (resultado.next()) {
                 String nombre = resultado.getString("strDrink");
@@ -79,7 +77,6 @@ public class ConexionBBDD {
                 drinkList.add(drink);
 
             }
-
 
             resultado.close();
             consulta.close();
