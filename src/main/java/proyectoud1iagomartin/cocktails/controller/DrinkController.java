@@ -1,7 +1,6 @@
 package proyectoud1iagomartin.cocktails.controller;
 
 import proyectoud1iagomartin.cocktails.model.Drinks;
-import proyectoud1iagomartin.cocktails.model.Response;
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,17 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.w3c.dom.DOMImplementation;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Text;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.*;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -36,11 +25,6 @@ import static proyectoud1iagomartin.cocktails.tools.ConexionBBDD.*;
  * Contiene el codigo de la ventana principal del progrma.
  */
 public class DrinkController implements Initializable {
-
-    //URL de la API para buscar en ella
-    private String finalURL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
-
-    private String rndURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
     @FXML
     private TextField name;
@@ -68,15 +52,12 @@ public class DrinkController implements Initializable {
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
-
     private ObservableList<Drinks> tableDrinks;
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         name.setText("Margarita");
         all();
-
 
         tableDrinks = FXCollections.observableArrayList();
 
@@ -87,7 +68,6 @@ public class DrinkController implements Initializable {
         this.tbl_ingrediente3.setCellValueFactory(new PropertyValueFactory("strIngredient3"));
         this.tbl_ingrediente4.setCellValueFactory(new PropertyValueFactory("strIngredient4"));
     }
-
 
     public void all() {
         consultAll();
@@ -112,35 +92,10 @@ public class DrinkController implements Initializable {
         tableView.setItems(tableDrinks);
         tableDrinks.stream().forEach(System.out::println);
         drinkListAll.addAll(drinkList);
-
-
     }
 
     /**
-     * Imprimir en la tabla un cocktail random
-     *
-     * @param actionEvent the action event
-     */
-    public void setRandom(ActionEvent actionEvent) {
-        try {
-            URL jsonURL = new URL(rndURL);
-            Response response = objectMapper.readValue(jsonURL, Response.class);
-
-            for (int i = 0; i < response.getDrinks().size(); i++) {
-
-            }
-
-            tableDrinks = FXCollections.observableArrayList(drinkList);
-            tableView.setItems(tableDrinks);
-            tableDrinks.stream().forEach(System.out::println);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Exportar el contenido de la tabla a un archivo .txt/.bin/.XML/.JSON
+     * Exportar el contenido de la tabla a un archivo .JSON
      *
      * @param actionEvent the action event
      */

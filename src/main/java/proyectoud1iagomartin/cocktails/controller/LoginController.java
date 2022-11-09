@@ -10,11 +10,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Properties;
 import java.util.ResourceBundle;
 
 import static proyectoud1iagomartin.cocktails.tools.ConexionBBDD.loging;
@@ -26,10 +23,8 @@ public class LoginController implements Initializable {
 
     @FXML
     private TextField user;
-
     @FXML
     private PasswordField pass;
-
     private Stage stage;
 
     /**
@@ -38,9 +33,6 @@ public class LoginController implements Initializable {
      * @param actionEvent the action event
      * @throws Exception the exception
      */
-
-    
-
     public void LogIn(ActionEvent actionEvent) {
         String usr = user.getText();
         String passwd = pass.getText();
