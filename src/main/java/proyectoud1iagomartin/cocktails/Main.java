@@ -3,6 +3,7 @@ package proyectoud1iagomartin.cocktails;
 import java.io.IOException;
 import java.sql.Connection;
 
+import proyectoud1iagomartin.cocktails.controller.DrinkController;
 import proyectoud1iagomartin.cocktails.controller.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -39,7 +40,7 @@ public class Main extends Application {
             if (conex_Cocktails != null || conex_LogIn != null) {
                 // Informamos que la conexión es correcta
                 System.out.println("Successfully connected");
-                consultAll();
+                
             } else { // Sino informamos que no nos podemos conectar.
                 System.out.println("You couldn't connect");
             }

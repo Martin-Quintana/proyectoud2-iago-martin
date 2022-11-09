@@ -1,9 +1,20 @@
 package proyectoud1iagomartin.cocktails.tools;
 
+import proyectoud1iagomartin.cocktails.model.Drinks;
+
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class ConexionBBDD {
+
+    public static ArrayList<Drinks> drinkList = new ArrayList<>();
+
+    public static ArrayList<Drinks> drinkListAll = new ArrayList<>();
+
+    private static Drinks drink = new Drinks();
+
     static Scanner scan = new Scanner(System.in);
     private static final String driver = "com.mysql.cj.jdbc.Driver";
     public static final String bbdd_Cocktails = "jdbc:mysql://localhost:3306/BBDD_Cocktails";
@@ -38,8 +49,10 @@ public class ConexionBBDD {
                 String igdt2 = resultado.getString("strIngredient2");
                 String igdt3 = resultado.getString("strIngredient3");
                 String igdt4 = resultado.getString("strIngredient4");
-                System.out.println("Nombre: " + nombre + ", Ingrediente 1: " + igdt1 + ", Ingrediente 2: " + igdt2 + ", Ingrediente 3: " + igdt3 + ", Ingrediente 4: " + igdt4);
+                //System.out.println("Nombre: " + nombre + ", Ingrediente 1: " + igdt1 + ", Ingrediente 2: " + igdt2 + ", Ingrediente 3: " + igdt3 + ", Ingrediente 4: " + igdt4);
 
+                drink = new Drinks(nombre, igdt1, igdt2, igdt3, igdt4);
+                drinkList.add(drink);
             }
 
             resultado.close();
@@ -50,11 +63,11 @@ public class ConexionBBDD {
         }
     }
 
-    public static void consultMargaritas() {
+    public static void nameConsult(String cocktailName) {
         try {
             Connection con = DriverManager.getConnection(bbdd_Cocktails, USR, PASSW);
             Statement consulta = con.createStatement();
-            ResultSet resultado = consulta.executeQuery("select strDrink, strIngredient1, strIngredient2, strIngredient3, strIngredient4 from drinks where strDrink like '%margarita%'");
+            ResultSet resultado = consulta.executeQuery("select strDrink, strIngredient1, strIngredient2, strIngredient3, strIngredient4 from drinks where strDrink like '%"+cocktailName+"%';");
 
             while (resultado.next()) {
                 String nombre = resultado.getString("strDrink");
@@ -62,7 +75,9 @@ public class ConexionBBDD {
                 String igdt2 = resultado.getString("strIngredient2");
                 String igdt3 = resultado.getString("strIngredient3");
                 String igdt4 = resultado.getString("strIngredient4");
-                System.out.println("Nombre: " + nombre + ", Ingrediente 1: " + igdt1 + ", Ingrediente 2: " + igdt2 + ", Ingrediente 3: " + igdt3 + ", Ingrediente 4: " + igdt4);
+                //System.out.println("Nombre: " + nombre + ", Ingrediente 1: " + igdt1 + ", Ingrediente 2: " + igdt2 + ", Ingrediente 3: " + igdt3 + ", Ingrediente 4: " + igdt4);
+                drink = new Drinks(nombre, igdt1, igdt2, igdt3, igdt4);
+                drinkList.add(drink);
 
             }
 
