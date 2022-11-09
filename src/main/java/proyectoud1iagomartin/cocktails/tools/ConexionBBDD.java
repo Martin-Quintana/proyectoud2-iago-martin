@@ -10,6 +10,9 @@ import java.util.Scanner;
 public class ConexionBBDD {
 
     public static ArrayList<Drinks> drinkList = new ArrayList<>();
+
+    public static ArrayList<Drinks> drinkListAll = new ArrayList<>();
+
     private static Drinks drink = new Drinks();
 
     static Scanner scan = new Scanner(System.in);
@@ -46,7 +49,7 @@ public class ConexionBBDD {
                 String igdt2 = resultado.getString("strIngredient2");
                 String igdt3 = resultado.getString("strIngredient3");
                 String igdt4 = resultado.getString("strIngredient4");
-                System.out.println("Nombre: " + nombre + ", Ingrediente 1: " + igdt1 + ", Ingrediente 2: " + igdt2 + ", Ingrediente 3: " + igdt3 + ", Ingrediente 4: " + igdt4);
+                //System.out.println("Nombre: " + nombre + ", Ingrediente 1: " + igdt1 + ", Ingrediente 2: " + igdt2 + ", Ingrediente 3: " + igdt3 + ", Ingrediente 4: " + igdt4);
 
                 drink = new Drinks(nombre, igdt1, igdt2, igdt3, igdt4);
                 drinkList.add(drink);
@@ -72,7 +75,7 @@ public class ConexionBBDD {
                 String igdt2 = resultado.getString("strIngredient2");
                 String igdt3 = resultado.getString("strIngredient3");
                 String igdt4 = resultado.getString("strIngredient4");
-                System.out.println("Nombre: " + nombre + ", Ingrediente 1: " + igdt1 + ", Ingrediente 2: " + igdt2 + ", Ingrediente 3: " + igdt3 + ", Ingrediente 4: " + igdt4);
+                //System.out.println("Nombre: " + nombre + ", Ingrediente 1: " + igdt1 + ", Ingrediente 2: " + igdt2 + ", Ingrediente 3: " + igdt3 + ", Ingrediente 4: " + igdt4);
                 drink = new Drinks(nombre, igdt1, igdt2, igdt3, igdt4);
                 drinkList.add(drink);
 
